@@ -7,6 +7,8 @@ function clean($string) {
 }
 
 function upload($post, $files = []) {
+	global $auth, $authData;
+
 	$toReturn = [
 		"status" => false,
 		"message" => "",
@@ -20,15 +22,14 @@ function upload($post, $files = []) {
 	if (move_uploaded_file($files["tmp_name"], $newFilePath)) {
 		$extension = pathinfo($files['name'], PATHINFO_EXTENSION);
 
-		$file = new files();
+		$file = new file();
 		$file->setFile($clean_file_name);
-		$file->setType(
-			(!in_array(strtolower($extension), ['jpg', 'jpeg', 'png', 'gif'])) ? 'doc' : 'img'
-		);
+		$file->setType((!in_array(strtolower($extension), ['jpg', 'jpeg', 'png', 'gif'])) ? 'doc' : 'img');
 		$file->setModule((isset($post["module"])) ? $post["module"] : "");
 		$file->setIdAss((isset($post["id"])) ? $post["id"] : "");
-		$file->setSort(0);
 		$file->setDescription("");
+		$file->setSort(0);
+		$file->setUserId($authData['id']);
 
 		$file->setDate();
 		$file->setDateUpdate();
@@ -49,7 +50,7 @@ function getList ($id, $module) {
 		"object" => []
 	];
 
-	$file = new files();
+	$file = new file();
 	$file->setIdAss($id);
 	$file->setModule($module);
 	$toReturn["object"] = $file->returnFilterList ();
@@ -68,7 +69,7 @@ function update ($id, $post) {
 		"object" => []
 	];
 
-	$file = new files();
+	$file = new file();
 	$file->setId($id);
 	$file->setDescription($post["description"]);
 	$file->setCode($post["code"]);
@@ -87,7 +88,7 @@ function delete ($id) {
 		"object" => []
 	];
 
-	$file = new files();
+	$file = new file();
 	$file->setId($id);
 	$toReturn["status"] = $file->delete();
 
@@ -96,10 +97,7 @@ function delete ($id) {
 
 switch ($_GET["r"]) {
 	case 'upload':
-		$tpl = upload(
-			$_POST,
-			(isset($_FILES["file"])) ? $_FILES["file"] : []
-		);
+		$tpl = upload( $_POST, isset($_FILES["file"]) ? $_FILES["file"] : []);
 		break;
 	case 'getList':
 		$tpl = getList($id, $_GET["module"]);
