@@ -4,10 +4,10 @@ $cfg->mdl = new stdClass();
 $cfg->mdl->name = "Files";
 $cfg->mdl->folder = "mod-4-files";
 $cfg->mdl->path = "{$cfg->system->path_bo}/modules/{$cfg->mdl->folder}/";
-$cfg->mdl->version = "0.0.6";
+$cfg->mdl->version = "0.0.5";
 $cfg->mdl->developer = "Carlos Santos";
 $cfg->mdl->contact = "carlos@one-shift.com";
-$cfg->mdl->dbTables = ["4_files"];
+$cfg->mdl->dbTables = ["files"];
 
 // load language for module
 if (file_exists("modules/{$cfg->mdl->folder}/languages/{$lg_s}.ini")) {
