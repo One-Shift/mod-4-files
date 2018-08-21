@@ -32,6 +32,7 @@ function upload($post, $files = []) {
 		$file->setUserId($authData['id']);
 
 		$file->setDate();
+		$file->setDateUpdate();
 
 		if ($file->insert()) {
 			$toReturn["status"] = true;
@@ -73,6 +74,7 @@ function update ($id, $post) {
 	$file->setDescription($post["description"]);
 	$file->setCode($post["code"]);
 	$file->setSort($post["sort"]);
+	$file->setDateUpdate();
 
 	$toReturn["status"] = $file->simpleUpdate();
 
@@ -93,40 +95,6 @@ function delete ($id) {
 	return json_encode($toReturn);
 }
 
-function restricted ($a) {
-	$file_path = "../uploads/restricted/{$a}";
-	
-	if (file_exists($filename)) {
-		$file_name = basename($file_path);
-
-		if (@is_array(getimagesize($file_path)) && !isset($_GET["download"])) {
-			header("Content-Type: " . mime_content_type($file_path));
-			header("Content-Length: " . filesize($file_path));
-
-			$file = @fopen($file_path, "rb");
-			fpassthru($file);
-		} else {
-			header("Content-Type: application/octet-stream");
-			header("Content-Disposition: attachment; filename=\"$file_name\"");
-			header("Pragma: public");
-			header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-
-			$file = @fopen($file_path, "rb");
-
-			while (!feof($file)) {
-				print(@fread($file, 1024 * 8));
-				ob_flush();
-				flush();
-			}
-		}
-		exit();
-	} else {
-		$tpl = "File does not exist! Sorry m8!";
-	}
-	
-	return isset($tpl) ? $tpl : "";
-}
-
 switch ($_GET["r"]) {
 	case 'upload':
 		$tpl = upload( $_POST, isset($_FILES["file"]) ? $_FILES["file"] : []);
@@ -139,9 +107,6 @@ switch ($_GET["r"]) {
 		break;
 	case 'delete':
 		$tpl = delete($id);
-		break;
-	case 'restricted':
-		$tpl = restricted($a);
 		break;
 	default:
 		$tpl = "";
