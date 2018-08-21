@@ -52,10 +52,12 @@ function getList ($id, $module) {
 	$file = new file();
 	$file->setIdAss($id);
 	$file->setModule($module);
-	$toReturn["object"] = $file->returnFilterList ();
+	$toReturn["object"] = $file->returnFilterList();
 
-	if (count($toReturn["object"]) > 0) {
-		$toReturn["status"] = true;
+	if(!empty($toReturn["object"])) {
+		if (count($toReturn["object"]) > 0) {
+			$toReturn["status"] = true;
+		}
 	}
 
 	return json_encode($toReturn);
@@ -95,7 +97,7 @@ function delete ($id) {
 
 function restricted ($a) {
 	$file_path = "../uploads/restricted/{$a}";
-	
+
 	if (file_exists($filename)) {
 		$file_name = basename($file_path);
 
@@ -123,7 +125,7 @@ function restricted ($a) {
 	} else {
 		$tpl = "File does not exist! Sorry m8!";
 	}
-	
+
 	return isset($tpl) ? $tpl : "";
 }
 
