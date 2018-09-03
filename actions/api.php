@@ -55,9 +55,9 @@ function getList ($id, $module) {
 	$toReturn["object"] = $file->returnFilterList();
 
 	if(!empty($toReturn["object"])) {
-		if (count($toReturn["object"]) > 0) {
-			$toReturn["status"] = true;
-		}
+		if (is_array($toReturn["object"]) && count($toReturn["object"]) > 0) {
+		    $toReturn["status"] = true;
+		  }
 	}
 
 	return json_encode($toReturn);
