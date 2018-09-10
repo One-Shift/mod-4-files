@@ -243,19 +243,15 @@ class file {
 		$source = $db->query($query);
 
 		if ($source->num_rows > 0) {
-			if ($source->num_rows > 1) {
-				while ($data = $source->fetch_object()) {
-					if (!isset($toReturn)) {
-						$toReturn = [];
-					}
-
-					array_push($toReturn, $data);
+			while ($data = $source->fetch_object()) {
+				if (!isset($toReturn)) {
+					$toReturn = [];
 				}
 
-				return $toReturn;
-			} else {
-				return $source->fetch_object();
+				array_push($toReturn, $data);
 			}
+
+			return $toReturn;
 		}
 
 		return FALSE;
