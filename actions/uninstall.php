@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_POST["submitUninstall"]) && user::isOwner($authData)) {
+if (isset($_POST["submitUninstall"]) && c9_user::isOwner($authData)) {
 	$db = bo3::c2r([
 		"mod-folder" => $cfg->mdl->folder,
 		"prefix" => $cfg->db->prefix
@@ -9,8 +9,8 @@ if (isset($_POST["submitUninstall"]) && user::isOwner($authData)) {
 	if ($mysqli->multi_query($db) != FALSE) {
 		while ($mysqli->more_results() && $mysqli->next_result()) {;} // flush multi_queries
 
-		unlink("class/class.4.files.php");
-		
+		unlink("class/class.4-files.php");
+
 		$mdl = bo3::c2r([
 			"lg-message" => $lang["uninstall"]["success"]
 		], bo3::mdl_load("templates-e/uninstall/message.tpl"));

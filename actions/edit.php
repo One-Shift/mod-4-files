@@ -1,12 +1,12 @@
 <?php
 
-$file = new file();
+$file = new c4_file();
 $file->setId($id);
 
 if (!isset($_POST["submit"])) {
 	$select_option = bo3::mdl_load("templates-e/edit/select-option.tpl");
 
-	$modules = file::returnModules();
+	$modules = c4_file::returnModules();
 	$file = $file->returnOneFile();
 
 	foreach ($modules as $i => $module) {

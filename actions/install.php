@@ -1,7 +1,7 @@
 <?php
 
-if (isset($_POST["submitInstall"]) && user::isOwner($authData)) {
-    $db = bo3::c2r([
+if (isset($_POST["submitInstall"]) && c9_user::isOwner($authData)) {
+	$db = bo3::c2r([
 		"mod-name" => $cfg->mdl->name,
 		"mod-folder" => $cfg->mdl->folder,
 		"prefix" => $cfg->db->prefix,
@@ -10,8 +10,8 @@ if (isset($_POST["submitInstall"]) && user::isOwner($authData)) {
 	if ($mysqli->multi_query($db) != FALSE) {
 		while ($mysqli->more_results() && $mysqli->next_result()) {;} // flush multi_queries
 
-		copy("modules/{$cfg->mdl->folder}/install/class.4.files.php", "class/class.4.files.php");
-		
+		copy("modules/{$cfg->mdl->folder}/install/class.4-files.php", "class/class.4-files.php");
+
 		$mdl = bo3::c2r([
 			"lg-message" => $lang["install"]["success"]
 		], bo3::mdl_load("templates-e/install/message.tpl"));

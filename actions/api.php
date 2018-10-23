@@ -22,7 +22,7 @@ function upload($post, $files = []) {
 	if (move_uploaded_file($files["tmp_name"], $newFilePath)) {
 		$extension = pathinfo($files['name'], PATHINFO_EXTENSION);
 
-		$file = new file();
+		$file = new c4_file();
 		$file->setFile($clean_file_name);
 		$file->setType((!in_array(strtolower($extension), ['jpg', 'jpeg', 'png', 'gif', 'svg'])) ? 'doc' : 'img');
 		$file->setModule((isset($post["module"])) ? $post["module"] : "");
@@ -49,15 +49,15 @@ function getList ($id, $module) {
 		"object" => []
 	];
 
-	$file = new file();
+	$file = new c4_file();
 	$file->setIdAss($id);
 	$file->setModule($module);
 	$toReturn["object"] = $file->returnFilterList();
 
-	if(!empty($toReturn["object"])) {
+	if (!empty($toReturn["object"])) {
 		if (is_array($toReturn["object"]) && count($toReturn["object"]) > 0) {
-		    $toReturn["status"] = true;
-		  }
+			$toReturn["status"] = true;
+		}
 	}
 
 	return json_encode($toReturn);
@@ -70,7 +70,7 @@ function update ($id, $post) {
 		"object" => []
 	];
 
-	$file = new file();
+	$file = new c4_file();
 	$file->setId($id);
 	$file->setDescription($post["description"]);
 	$file->setCode($post["code"]);
@@ -88,7 +88,7 @@ function delete ($id) {
 		"object" => []
 	];
 
-	$file = new file();
+	$file = new c4_file();
 	$file->setId($id);
 	$toReturn["status"] = $file->delete();
 
