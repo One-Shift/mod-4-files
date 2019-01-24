@@ -301,7 +301,7 @@ class c4_file {
 	public function fallback($id, $l) {
 		$l = explode(",", $l);
 
-		$file = new file();
+		$file = new c4_file();
 		$file->setDateUpdate();
 
 		foreach ($l as $i => $item) {
