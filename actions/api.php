@@ -29,7 +29,7 @@ function upload($post, $files = []) {
 		$file->setIdAss((isset($post["id"])) ? $post["id"] : "");
 		$file->setDescription("");
 		$file->setSort(0);
-		$file->setUserId($authData['id']);
+		$file->setUserId($authData->id);
 
 		$file->setDate();
 
