@@ -36,6 +36,8 @@ function upload($post, $files = []) {
 		if ($file->insert()) {
 			$toReturn["status"] = true;
 			array_push($toReturn["object"], $file->returnObject());
+		} else {
+			$toReturn["error"] = $file->returnError()
 		}
 	}
 
