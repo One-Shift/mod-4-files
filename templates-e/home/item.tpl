@@ -22,7 +22,7 @@
 		</div>
 	</div>
 	<div class="action-list col-12 col-sm-12 col-md-12 col-lg-12 col-xl-2" style="justify-content: center;">
-		<a href="{{ path-bo }}/{{ lg }}/{{ module-folder }}/edit/{{ id }}" class="btn btn-success btn-edit" role="button">
+		<a href="{{ bo-path }}/{{ lg }}/{{ module-folder }}/edit/{{ id }}" class="btn btn-success btn-edit" role="button">
 			<i class="fas fa-edit" aria-hidden="true"></i>
 		</a>
 	</div>
