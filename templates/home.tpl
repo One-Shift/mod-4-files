@@ -1,4 +1,4 @@
-{c2r-plg-files}
+{{ plg-files }}
 <div class="spacer all-15"></div>
 <div class="row">
 	<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -29,6 +29,6 @@
 				<strong>{c2r-lg-actions}</strong>
 			</div>
 		</div>
-		{c2r-list}
+		{{ list }}
 	</div>
 </div>
