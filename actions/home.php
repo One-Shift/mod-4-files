@@ -18,11 +18,22 @@ if(!empty($files)) {
 			"id-ass" => $file->id_ass,
 			"sort" => $file->sort,
 			"date-update" => $file->date_update,
+
+			"lg-description" => $plg_lang["description"],
+			"lg-code" => $plg_lang["code"],
+			"lg-sort" => $plg_lang["sort"],
+			"lg-save" => $plg_lang["save"]
 		], $item_tpl);
 	}
 }
 
 $mdl = bo3::c2r([
+	"lg-file" => $mdl_lang["file"],
+	"lg-module" => $mdl_lang["module"],
+	"lg-id-ass" => $mdl_lang["id-ass"],
+	"lg-sort" => $mdl_lang["sort"],
+	"lg-update" => $mdl_lang["update"],
+	"lg-actions" => $mdl_lang["actions"],
 	"list" => (isset($list)) ? $list : ""
 ], bo3::mdl_load("templates/home.tpl"));
 
