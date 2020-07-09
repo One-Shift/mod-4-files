@@ -31,13 +31,11 @@ function upload($post, $files = []) {
 		$file->setSort(0);
 		$file->setUserId($authData->id);
 
-		$file->setDate();
-
 		if ($file->insert()) {
 			$toReturn["status"] = true;
 			array_push($toReturn["object"], $file->returnObject());
 		} else {
-			$toReturn["error"] = $file->returnError()
+			$toReturn["error"] = $file->returnError();
 		}
 	}
 
