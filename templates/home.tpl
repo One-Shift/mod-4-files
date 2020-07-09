@@ -9,24 +9,24 @@
 						<strong>#</strong>
 					</div>
 					<div class="block col-sm-5 tacenter">
-						<strong>File</strong>
+						<strong>{c2r-lg-file}</strong>
 					</div>
 					<div class="block col-sm-1 tacenter">
-						<strong>Module</strong>
+						<strong>{c2r-lg-module}</strong>
 					</div>
 					<div class="block col-sm-1 tacenter">
-						<strong>ID Ass.</strong>
+						<strong>{c2r-lg-id-ass}</strong>
 					</div>
 					<div class="block col-sm-1 tacenter">
-						<strong>Sort</strong>
+						<strong>{c2r-lg-sort}</strong>
 					</div>
 					<div class="block col-sm-3 tacenter">
-						<strong>Last Update</strong>
+						<strong>{c2r-lg-update}</strong>
 					</div>
 				</div>
 			</div>
 			<div class="block col-sm-2 tacenter">
-				<strong>Actions</strong>
+				<strong>{c2r-lg-actions}</strong>
 			</div>
 		</div>
 		{c2r-list}
