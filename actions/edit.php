@@ -40,9 +40,6 @@ if (!isset($_POST["submit"])) {
 	$file->setSort((int)$_POST["inputSort"]);
 	$file->setDescription($_POST["inputDescription"]);
 
-	$file->setDate($_POST["inputDate"]);
-	$file->setDateUpdate();
-
 	if ($file->normalUpdate() && $file->simpleUpdate()) {
 		$mdl = $mdl_lang["edit-success"];
 	} else {
