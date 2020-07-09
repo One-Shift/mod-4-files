@@ -9,24 +9,24 @@
 						<strong>#</strong>
 					</div>
 					<div class="block col-sm-5 tacenter">
-						<strong>{c2r-lg-file}</strong>
+						<strong>{{ lg-file }}</strong>
 					</div>
 					<div class="block col-sm-1 tacenter">
-						<strong>{c2r-lg-module}</strong>
+						<strong>{{ lg-module }}</strong>
 					</div>
 					<div class="block col-sm-1 tacenter">
-						<strong>{c2r-lg-id-ass}</strong>
+						<strong>{{ lg-id-ass }}</strong>
 					</div>
 					<div class="block col-sm-1 tacenter">
-						<strong>{c2r-lg-sort}</strong>
+						<strong>{{ lg-sort }}</strong>
 					</div>
 					<div class="block col-sm-3 tacenter">
-						<strong>{c2r-lg-update}</strong>
+						<strong>{{ lg-update }}</strong>
 					</div>
 				</div>
 			</div>
 			<div class="block col-sm-2 tacenter">
-				<strong>{c2r-lg-actions}</strong>
+				<strong>{{ lg-actions}</strong>
 			</div>
 		</div>
 		{{ list }}
