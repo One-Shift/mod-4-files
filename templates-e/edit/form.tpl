@@ -1,4 +1,4 @@
-<form action="{{ path-bo }}/{{ lg }}/{{ module-folder }}/edit/{{ id }}" method="post">
+<form action="{{ bo-path }}/{{ lg }}/{{ module-folder }}/edit/{{ id }}" method="post">
 	<div class="row">
 		<div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 			<div class="spacer all-15"></div>
