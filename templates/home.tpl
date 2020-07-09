@@ -26,7 +26,7 @@
 				</div>
 			</div>
 			<div class="block col-sm-2 tacenter">
-				<strong>{{ lg-actions}</strong>
+				<strong>{{ lg-actions }}</strong>
 			</div>
 		</div>
 		{{ list }}
