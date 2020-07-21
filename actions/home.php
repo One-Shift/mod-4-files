@@ -19,10 +19,10 @@ if(!empty($files)) {
 			"sort" => $file->sort,
 			"date-update" => $file->date_update,
 
-			"lg-description" => $plg_lang["description"],
-			"lg-code" => $plg_lang["code"],
-			"lg-sort" => $plg_lang["sort"],
-			"lg-save" => $plg_lang["save"]
+			"lg-description" => $mdl_lang["description"],
+			"lg-code" => $mdl_lang["code"],
+			"lg-sort" => $mdl_lang["sort"],
+			"lg-save" => $mdl_lang["save"]
 		], $item_tpl);
 	}
 }
